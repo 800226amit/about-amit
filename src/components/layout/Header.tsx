@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Github, Linkedin, Mail, Download, Code, User, FolderOpen, MessageSquare } from 'lucide-react'
+import { Menu, X, Github, Linkedin, Mail, Download, User, FolderOpen, MessageSquare } from 'lucide-react'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)

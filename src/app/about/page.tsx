@@ -13,8 +13,6 @@ export default function About() {
 
 
                     </h1>
-
-
                 </div>
             </Standardize>
         </>

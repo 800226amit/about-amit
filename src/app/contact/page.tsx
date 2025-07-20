@@ -12,7 +12,7 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<null | 'success'>(null)
 
-  const handleInputChange = (e: { target: { name: any; value: any } }) => {
+  const handleInputChange = (e: { target: { name: string; value: string } }) => {
     const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
@@ -89,7 +89,7 @@ export default function Contact() {
     {
       icon: Twitter,
       name: 'Twitter',
-      url: 'https://twitter.com/yourusername',
+      url: 'https://twitter.com/amit',
       color: 'hover:text-sky-500',
       bgColor: 'hover:bg-sky-50'
     },
@@ -112,11 +112,11 @@ export default function Contact() {
             <Mail className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-amber-800 to-orange-800 bg-clip-text text-transparent mb-6">
-            Let's Work Together
+            Let&apos; s Work Together
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            I'm always interested in new opportunities and exciting projects. Whether you have a question, 
-            want to collaborate, or just want to say hi, I'd love to hear from you!
+            I&apos;m always interested in new opportunities and exciting projects. Whether you have a question, 
+            want to collaborate, or just want to say hi, I&apos;d love to hear from you!
           </p>
         </div>
 
@@ -290,7 +290,7 @@ export default function Contact() {
                 <h3 className="text-xl font-bold">Currently Available</h3>
               </div>
               <p className="text-green-100 mb-4">
-                I'm open to freelance projects, full-time opportunities, and interesting collaborations.
+                I&apos;m open to freelance projects, full-time opportunities, and interesting collaborations.
               </p>
               <div className="flex items-center space-x-2 text-green-100">
                 <Clock className="w-4 h-4" />
