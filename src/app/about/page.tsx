@@ -14,9 +14,6 @@ export default function About() {
 
                     </h1>
 
-                    {/* 
-                    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 
-                    */}
 
                 </div>
             </Standardize>
