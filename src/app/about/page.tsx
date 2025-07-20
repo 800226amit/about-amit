@@ -10,7 +10,13 @@ export default function About() {
                 <div className="h-80 bg-amber-800">
                     <h1>
                         About
+
+
                     </h1>
+
+                    {/* 
+                    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 
+                    */}
 
                 </div>
             </Standardize>
