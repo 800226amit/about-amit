@@ -23,7 +23,7 @@ export default function HeroSection() {
       setCurrentTech((prev) => (prev + 1) % technologies.length);
     }, 2000);
     return () => clearInterval(interval);
-  }, []);
+  }, [technologies.length]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-amber-50/30 relative overflow-hidden pt-20">
