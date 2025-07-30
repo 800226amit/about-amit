@@ -1,11 +1,12 @@
 "use client"
 
 import React, { useState } from 'react';
-import { Github, ExternalLink, Calendar, Users, Code, Server, Zap, Globe} from 'lucide-react';
+import { Github, ExternalLink, Calendar, Users, Code, Server, Zap, Globe } from 'lucide-react';
+import Image from 'next/image';
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState('all');
-  
+
   const projects = [
     {
       id: 1,
@@ -22,7 +23,7 @@ export default function ProjectsSection() {
         "Scalable microservices architecture",
         "High availability and performance"
       ],
-      image: "/public/nationalportal.png",
+      image: "/nationalportal.png",
       liveUrl: "https://v2.india.gov.in/",
       githubUrl: "#",
       status: "In Development",
@@ -33,6 +34,7 @@ export default function ProjectsSection() {
     {
       id: 2,
       title: "Project Management System",
+
       category: "backend",
       type: "Internship Project",
       description: "Developed a Redmine-based project management solution that reduced project completion time by 40% through optimized workflows.",
@@ -131,8 +133,8 @@ export default function ProjectsSection() {
     { id: 'backend', label: 'Backend', icon: Server }
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
+  const filteredProjects = activeFilter === 'all'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
   const getStatusColor = (status: string) => {
@@ -161,13 +163,13 @@ export default function ProjectsSection() {
             <Code size={16} />
             <span>Portfolio Showcase</span>
           </div>
-          
+
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Featured <span className="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Projects</span>
           </h2>
-          
+
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            A collection of projects showcasing my expertise in full-stack development, 
+            A collection of projects showcasing my expertise in full-stack development,
             from government portals to personal innovations.
           </p>
         </div>
@@ -180,11 +182,10 @@ export default function ProjectsSection() {
               <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                  activeFilter === filter.id
-                    ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/25'
-                    : 'bg-white text-gray-700 hover:bg-amber-50 hover:text-amber-700 border border-gray-200 hover:border-amber-200'
-                }`}
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${activeFilter === filter.id
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/25'
+                  : 'bg-white text-gray-700 hover:bg-amber-50 hover:text-amber-700 border border-gray-200 hover:border-amber-200'
+                  }`}
               >
                 <Icon size={18} />
                 <span>{filter.label}</span>
@@ -207,9 +208,16 @@ export default function ProjectsSection() {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-6xl font-bold text-amber-600/30">
                     {project.title.split(' ').map(word => word[0]).join('')}
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    />
+                    
                   </div>
                 </div>
-                
+
                 {/* Status Badge */}
                 <div className="absolute top-4 left-4">
                   <span className={`px-3 py-1 rounded-full text-sm font-semibold border ${getStatusColor(project.status)}`}>
@@ -337,7 +345,7 @@ export default function ProjectsSection() {
               Interested in working together?
             </h3>
             <p className="text-gray-600 mb-6">
-              I&apos;m always open to discussing new opportunities and exciting projects. 
+              I&apos;m always open to discussing new opportunities and exciting projects.
               Let&apos;s create something amazing together!
             </p>
             <button className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-3 rounded-lg hover:from-amber-400 hover:to-orange-400 transition-all font-semibold hover:shadow-lg hover:shadow-amber-500/25 transform hover:scale-105">

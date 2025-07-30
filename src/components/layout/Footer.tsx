@@ -73,7 +73,7 @@ export default function Footer() {
                   <div className="p-2 bg-gray-100 rounded-lg">
                     <MapPin size={16} />
                   </div>
-                  <span>Odisha, India</span>
+                  <span>Bihar, India</span>
                 </div>
               </div>
 
@@ -180,12 +180,17 @@ export default function Footer() {
               Let&apos;s discuss how we can make your vision a reality.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href={'/contact'}>
               <button className="bg-white text-amber-600 px-6 py-3 rounded-lg font-semibold hover:bg-amber-50 transition-all hover:scale-105 hover:shadow-lg">
                 Get In Touch
               </button>
+            </Link>
+
+            <Link href={'./projects'}>
               <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-amber-600 transition-all hover:scale-105">
                 View My Work
               </button>
+              </Link>
             </div>
           </div>
         </div>

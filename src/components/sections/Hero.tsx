@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { Github, Code, Database, Server, ExternalLink, Download, ChevronDown, Star } from 'lucide-react';
+import {  Code, Database, Server, ExternalLink,  ChevronDown, Star } from 'lucide-react';
 
 export default function HeroSection() {
   const [currentTech, setCurrentTech] = useState(0);
@@ -114,16 +114,16 @@ export default function HeroSection() {
             <div className="flex flex-wrap gap-4">
               <button className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-3 rounded-lg hover:from-amber-400 hover:to-orange-400 hover:shadow-lg hover:shadow-amber-500/25 transition-all transform hover:scale-105 flex items-center space-x-2 font-semibold">
                 <span>Get in Touch</span>
-                <ExternalLink size={16} />
+               <a href="./contact"><ExternalLink size={16} /></a> 
               </button>
-              <button className="border-2 border-amber-200 text-amber-700 px-8 py-3 rounded-lg hover:bg-amber-50 hover:border-amber-300 transition-all flex items-center space-x-2 font-semibold">
+              {/* <button className="border-2 border-amber-200 text-amber-700 px-8 py-3 rounded-lg hover:bg-amber-50 hover:border-amber-300 transition-all flex items-center space-x-2 font-semibold">
                 <Download size={16} />
                 <span>Download CV</span>
-              </button>
+              </button> */}
             </div>
 
             {/* GitHub Links */}
-            <div className="flex items-center space-x-6">
+            {/* <div className="flex items-center space-x-6">
               <a href="https://github.com/amitkeen" className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors group">
                 <div className="p-2 bg-gray-100 rounded-lg group-hover:bg-gray-200 transition-colors">
                   <Github size={20} />
@@ -136,7 +136,7 @@ export default function HeroSection() {
                 </div>
                 <span>amit80022</span>
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Content - Tech Stack Cards */}
