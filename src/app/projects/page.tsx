@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Github, ExternalLink, Calendar, Users, Code, Server, Zap, Globe } from 'lucide-react';
 import Image from 'next/image';
+import { features } from 'process';
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -24,7 +25,7 @@ export default function ProjectsSection() {
         "High availability and performance"
       ],
       image: "/nationalportal.png",
-      liveUrl: "https://v2.india.gov.in/",
+      liveUrl: "https://www.india.gov.in/",
       githubUrl: "#",
       status: "In Development",
       duration: "Jan 2024 - Present",
@@ -123,7 +124,28 @@ export default function ProjectsSection() {
       duration: "4 months",
       team: "Solo project",
       impact: "Processing 1M+ records"
+    },
+    /*
+    {
+      id: 6,
+      title: "National Portal of India APP",
+      category: "Mobile APP",
+      type: "Professional Project",
+      description: "Coming soon",
+      longDescription: "Coming soon",
+      technologies: "React Native",
+      features: [],
+      image: "",
+      liveUrl: "",
+      githubUrl: "",
+      status: "",
+      duration: "",
+      team: "",
+      impact: ""
+
+
     }
+    */
   ];
 
   const filters = [
@@ -214,7 +236,7 @@ export default function ProjectsSection() {
                       fill
                       className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                     />
-                    
+
                   </div>
                 </div>
 
