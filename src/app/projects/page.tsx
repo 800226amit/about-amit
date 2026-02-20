@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Github, ExternalLink, Calendar, Users, Code, Server, Zap, Globe } from 'lucide-react';
 import Image from 'next/image';
-import { features } from 'process';
+//import { features } from 'process';
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState('all');
