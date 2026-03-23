@@ -2,14 +2,13 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Github, Linkedin, Mail, Download, User, FolderOpen, MessageSquare } from 'lucide-react'
+import { Menu, X, Github, Linkedin, Mail, Download, User, FolderOpen, MessageSquare, Book } from 'lucide-react'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
@@ -35,6 +34,12 @@ export default function Header() {
       name: 'Contact', 
       href: '/contact', 
       icon: MessageSquare,
+      description: 'Get in touch'
+    },
+    { 
+      name: 'Blogs', 
+      href: '/blogs', 
+      icon: Book,
       description: 'Get in touch'
     }
   ]
