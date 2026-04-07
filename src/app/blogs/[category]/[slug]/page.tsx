@@ -1,8 +1,9 @@
 import path from 'path';
 import { promises as fs } from 'fs';
-import ReactMarkdown from 'react-markdown';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
+import mdxMermaid from 'mdx-mermaid';
+import MermaidClient from '@/components/mdx/MermaidClient';
 
 type BlogPageProps = {
     params: Promise<{
@@ -29,14 +30,38 @@ export default async function BlogPage({ params }: BlogPageProps) {
         markdown = '# The Blogs are comming soon';
     }
 
+    const mdxMermaidPlugin =
+        (mdxMermaid as unknown as { default?: typeof mdxMermaid }).default ??
+        mdxMermaid;
+
+    const mermaidConfig = {
+        theme: {
+            light: 'default',
+            dark: 'default'
+        },
+        mermaid: {
+            theme: 'default',
+            themeVariables: {
+                textColor: '#111827',
+                primaryTextColor: '#111827',
+                lineColor: '#111827',
+                fontFamily: 'ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif'
+            }
+        }
+    };
+
     return (
         <section className="py-16 bg-gradient-to-br from-gray-50 via-white to-amber-50/30">
             <div className="container mx-auto px-6">
                 <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-amber-200/30 shadow-lg p-8">
                    <div>
-                     <ReactMarkdown
-                        remarkPlugins={[remarkGfm]}
-                        rehypePlugins={[rehypeRaw]}
+                     <MDXRemote
+                        source={markdown}
+                        options={{
+                            mdxOptions: {
+                                remarkPlugins: [remarkGfm, [mdxMermaidPlugin, mermaidConfig]]
+                            }
+                        }}
                         components={{
                             h1: (props) => <h1 className="text-3xl font-bold text-gray-900 mb-4" {...props} />,
                             h2: (props) => <h2 className="text-2xl font-bold text-gray-900 mt-6 mb-3" {...props} />,
@@ -53,11 +78,11 @@ export default async function BlogPage({ params }: BlogPageProps) {
                                     loading="lazy"
                                     {...props}
                                 />
-                            )
+                            ),
+                            mermaid: MermaidClient,
+                            Mermaid: MermaidClient
                         }}
-                    >
-                        {markdown}
-                    </ReactMarkdown>
+                    />
                    </div>
                 </div>
             </div>

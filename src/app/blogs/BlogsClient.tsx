@@ -4,59 +4,13 @@ import React, { useState } from 'react';
 import { Github, ExternalLink, Calendar, Users, Zap, Book, Newspaper, FolderGit2, BookOpenText, Briefcase } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import projects from "./_blogs/learning-journey/Data";
+
 export default function BlogsClient() {
     const [activeFilter, setActiveFilter] = useState('article');
 
-    const projects = [
-        {
-            id: 1,
-            title: "System Design",
-            category: "journey",
-            type: "Professional Project",
-            description: "A comprehensive government portal built with Next.js and Java Quarkus, serving millions of citizens with digital services and information.",
-            longDescription: "Leading the development of India's national digital portal, focusing on scalable architecture and user-centered design. Implemented responsive UIs and robust backend systems to handle high traffic loads.",
-            technologies: ["Next.js", "Java Quarkus", "PostgreSQL", "Elasticsearch", "Apache Kafka", "Docker"],
-            features: [
-                "Responsive UI for all devices",
-                "Real-time data processing with Kafka",
-                "Advanced search with Elasticsearch",
-                "Scalable microservices architecture",
-                "High availability and performance"
-            ],
-            image: "/NPI_Complete_Diagram.png",
-            liveUrl: "/blogs/learning-journey/system-design",
-            githubUrl: "#",
-            status: "In Development",
-            duration: "Jan 2024 - Present",
-            team: "5 developers",
-            impact: "Serving 10M+ users"
-        },
-
-        {
-            id: 2,
-            title: "",
-            category: "article",
-            type: "",
-            description: "",
-            longDescription: "",
-            technologies: [],
-            features: [
-               
-            ],
-            image: "",
-            liveUrl: "",
-            githubUrl: "#",
-            status: "not started",
-            duration: "",
-            team: "",
-            impact: ""
-        },
-        
-     
-    ];
-
     const filters = [
-      
+
 
         // { id: 'all', label: 'All Projects', icon: Globe },
         { id: 'article', label: 'Tech Articles', icon: Newspaper },
@@ -82,14 +36,14 @@ export default function BlogsClient() {
 
     return (
         <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-amber-50/30 relative overflow-hidden">
-            {/* Background decoration */}
+
             <div className="absolute inset-0">
                 <div className="absolute top-0 right-1/4 w-72 h-72 bg-amber-200/10 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-orange-200/10 rounded-full blur-3xl"></div>
             </div>
 
             <div className="relative z-10 container mx-auto px-6">
-                {/* Section Header */}
+
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center space-x-2 bg-amber-100/50 rounded-full px-4 py-2 text-sm text-amber-700 mb-4">
                         <Book size={16} />
@@ -104,7 +58,7 @@ export default function BlogsClient() {
                         A space where I share my learnings, ideas, and experiences across software development, technology, and the journey of building better software.          </p>
                 </div>
 
-                {/* Filter Buttons */}
+
                 <div className="flex flex-wrap justify-center gap-4 mb-12">
                     {filters.map((filter) => {
                         const Icon = filter.icon;
@@ -124,7 +78,7 @@ export default function BlogsClient() {
                     })}
                 </div>
 
-                {/* Projects Grid */}
+
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {filteredProjects.map((project, index) => (
                         <div
@@ -132,7 +86,6 @@ export default function BlogsClient() {
                             className="bg-white/80 backdrop-blur-sm rounded-2xl border border-amber-200/30 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden group"
                             style={{ animationDelay: `${index * 0.1}s` }}
                         >
-                            {/* Project Image */}
                             <div className="relative h-48 bg-gradient-to-br from-amber-100 to-orange-100 overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-500/20"></div>
                                 <div className="absolute inset-0 flex items-center justify-center">
@@ -148,14 +101,14 @@ export default function BlogsClient() {
                                     </div>
                                 </div>
 
-                                {/* Status Badge */}
+
                                 <div className="absolute top-4 left-4">
                                     <span className={`px-3 py-1 rounded-full text-sm font-semibold border ${getStatusColor(project.status)}`}>
                                         {project.status}
                                     </span>
                                 </div>
 
-                                {/* Links */}
+
                                 <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     {project.liveUrl !== '#' && (
                                         <Link
@@ -178,7 +131,7 @@ export default function BlogsClient() {
                                 </div>
                             </div>
 
-                            {/* Project Content */}
+
                             <div className="p-6">
                                 <div className="mb-4">
                                     <div className="flex items-center justify-between mb-2">
@@ -194,7 +147,7 @@ export default function BlogsClient() {
                                     </p>
                                 </div>
 
-                                {/* Project Stats */}
+
                                 <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-600">
                                     <div className="flex items-center space-x-1">
                                         <Calendar size={14} />
@@ -210,7 +163,6 @@ export default function BlogsClient() {
                                     </div>
                                 </div>
 
-                                {/* Technologies */}
                                 <div className="mb-6">
                                     <h4 className="text-sm font-semibold text-gray-900 mb-2">Technologies Used:</h4>
                                     <div className="flex flex-wrap gap-2">
@@ -225,7 +177,6 @@ export default function BlogsClient() {
                                     </div>
                                 </div>
 
-                                {/* Key Features */}
                                 <div className="mb-6">
                                     <h4 className="text-sm font-semibold text-gray-900 mb-2">Key Features:</h4>
                                     <ul className="space-y-1">
@@ -238,7 +189,6 @@ export default function BlogsClient() {
                                     </ul>
                                 </div>
 
-                                {/* Action Buttons */}
                                 <div className="flex space-x-3">
                                     {project.liveUrl !== '#' && (
                                         <Link
@@ -264,21 +214,6 @@ export default function BlogsClient() {
                     ))}
                 </div>
 
-                {/* Call to Action */}
-                <div className="text-center mt-16">
-                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-amber-200/30 shadow-lg p-8 max-w-2xl mx-auto">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                            Interested in working together?
-                        </h3>
-                        <p className="text-gray-600 mb-6">
-                            I&apos;m always open to discussing new opportunities and exciting projects.
-                            Let&apos;s create something amazing together!
-                        </p>
-                        <button className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-3 rounded-lg hover:from-amber-400 hover:to-orange-400 transition-all font-semibold hover:shadow-lg hover:shadow-amber-500/25 transform hover:scale-105">
-                            Start a Conversation
-                        </button>
-                    </div>
-                </div>
             </div>
         </section>
     );
