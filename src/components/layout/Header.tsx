@@ -18,29 +18,29 @@ export default function Header() {
   }, [])
 
   const navigation = [
-    { 
-      name: 'Projects', 
-      href: '/projects', 
+    {
+      name: 'Projects',
+      href: '/projects',
       icon: FolderOpen,
       description: 'View my work'
     },
-    { 
-      name: 'About', 
-      href: '/about', 
+    {
+      name: 'About',
+      href: '/about',
       icon: User,
       description: 'Learn about me'
     },
-    { 
-      name: 'Contact', 
-      href: '/contact', 
+    {
+      name: 'Contact',
+      href: '/contact',
       icon: MessageSquare,
       description: 'Get in touch'
     },
-    { 
-      name: 'Blogs', 
-      href: '/blogs', 
+    {
+      name: 'Blogs',
+      href: '/blogs',
       icon: Book,
-      description: 'Get in touch'
+      description: 'Explore knowlegde, tutorials, and insights'
     }
   ]
 
@@ -49,21 +49,20 @@ export default function Header() {
   }
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-200/50' 
-        : 'bg-white/80 backdrop-blur-sm border-b border-gray-100/20'
-    }`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+      ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-200/50'
+      : 'bg-white/80 backdrop-blur-sm border-b border-gray-100/20'
+      }`}>
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          
+
           {/* Logo/Brand */}
           <div className="flex items-center">
             <Link href="/" className="group flex items-center space-x-3">
               <div className="relative">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl">
                   {/* <Code className="w-6 h-6 text-white" /> */}
-                   <span className="text-white font-bold text-lg">AK</span>
+                  <span className="text-white font-bold text-lg">AK</span>
                 </div>
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-300 to-orange-400 opacity-0 group-hover:opacity-30 transition-opacity duration-300 blur-sm"></div>
               </div>
@@ -86,20 +85,19 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`group relative flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                    isActiveRoute(item.href)
-                      ? 'text-amber-600 bg-amber-50 shadow-sm'
-                      : 'text-gray-700 hover:text-amber-600 hover:bg-amber-50/50'
-                  }`}
+                  className={`group relative flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${isActiveRoute(item.href)
+                    ? 'text-amber-600 bg-amber-50 shadow-sm'
+                    : 'text-gray-700 hover:text-amber-600 hover:bg-amber-50/50'
+                    }`}
                 >
                   <Icon className="w-4 h-4" />
                   <span>{item.name}</span>
-                  
+
                   {/* Active indicator */}
                   {isActiveRoute(item.href) && (
                     <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-6 h-0.5 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full"></div>
                   )}
-                  
+
                   {/* Hover tooltip */}
                   <div className="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
                     {item.description}
@@ -123,7 +121,7 @@ export default function Header() {
               >
                 <Github className="w-5 h-5" />
               </a>
-              
+
               <a
                 href="https://www.linkedin.com/in/amit-kumar-7629941b7/"
                 target="_blank"
@@ -142,7 +140,7 @@ export default function Header() {
                 <Mail className="w-5 h-5" />
               </Link>
             </div>
-            
+
             {/* Resume Download */}
             <a
               href="/Amit_Kumar__Backend_Dev__.pdf"
@@ -168,11 +166,10 @@ export default function Header() {
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`md:hidden transition-all duration-300 ease-in-out ${
-          isOpen 
-            ? 'max-h-screen opacity-100 visible pb-6' 
-            : 'max-h-0 opacity-0 invisible pb-0'
-        } overflow-hidden border-t border-gray-200`}>
+        <div className={`md:hidden transition-all duration-300 ease-in-out ${isOpen
+          ? 'max-h-screen opacity-100 visible pb-6'
+          : 'max-h-0 opacity-0 invisible pb-0'
+          } overflow-hidden border-t border-gray-200`}>
           <div className="pt-4 space-y-2">
             {navigation.map((item) => {
               const Icon = item.icon
@@ -181,11 +178,10 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center space-x-3 w-full px-4 py-3 text-left font-medium transition-all duration-200 rounded-lg ${
-                    isActiveRoute(item.href)
-                      ? 'text-amber-600 bg-amber-50'
-                      : 'text-gray-700 hover:text-amber-600 hover:bg-amber-50/50'
-                  }`}
+                  className={`flex items-center space-x-3 w-full px-4 py-3 text-left font-medium transition-all duration-200 rounded-lg ${isActiveRoute(item.href)
+                    ? 'text-amber-600 bg-amber-50'
+                    : 'text-gray-700 hover:text-amber-600 hover:bg-amber-50/50'
+                    }`}
                 >
                   <Icon className="w-5 h-5" />
                   <div>
@@ -198,7 +194,7 @@ export default function Header() {
                 </Link>
               )
             })}
-            
+
             {/* Mobile Social Links & Resume */}
             <div className="pt-4 border-t border-gray-200 space-y-3">
               <div className="flex justify-center space-x-6">
@@ -211,7 +207,7 @@ export default function Header() {
                   <Github className="w-5 h-5" />
                   <span>GitHub</span>
                 </a>
-                
+
                 <a
                   href="https://linkedin.com/in/yourusername"
                   target="_blank"
@@ -222,7 +218,7 @@ export default function Header() {
                   <span>LinkedIn</span>
                 </a>
               </div>
-              
+
               <a
                 href="/resume.pdf"
                 target="_blank"
